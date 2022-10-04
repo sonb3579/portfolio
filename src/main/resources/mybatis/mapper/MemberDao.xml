@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.food.dao.IMemberDao">
+<resultMap  id="memberMap" type="java.util.HashMap"></resultMap>
+
+
+	<select id="getMember" resultType="com.ezen.food.dto.MemberVO">
+		select * from members where id=#{param1}
+	</select>
+	
+	<update id="changeName" parameterType="com.ezen.food.dto.MemberVO">
+		update members set name=#{name} where id=#{id}	
+	</update>
+	<update id="changeGender" parameterType="com.ezen.food.dto.MemberVO">
+		update members set gender=#{gender} where id=#{id}	
+	</update>
+	<update id="changePhone" parameterType="com.ezen.food.dto.MemberVO">
+		update members set phone=#{phone} where id=#{id}	
+	</update>
+	<update id="changePwd" parameterType="com.ezen.food.dto.MemberVO">
+		update members set pwd=#{pwd} where id=#{id}	
+	</update>
+	
+	<delete id="deleteAccount"  parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL deleteMember(#{id})}
+	</delete>
+	
+	
+	<select id="getRecentCheck" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.CheckRestVO">
+			select * from (
+			select * from (
+			select rownum as rn, m.* from ((select * from check_view where id=#{param2} and to_date(c_checkdate,'yyyy-mm-dd') &lt; to_date(to_char(SYSDATE,'yyyy-mm-dd'))) m)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+	</select>
+	<select id="getLastCheck" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.CheckRestVO">
+			select * from (
+			select * from (
+			select rownum as rn, m.* from ((select * from check_view where id=#{param2} and to_date(c_checkdate,'yyyy-mm-dd') &gt;= to_date(to_char(SYSDATE,'yyyy-mm-dd'))) m)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+	</select>	
+	
+	<insert id="insertMember" parameterType="java.util.HashMap" statementType="CALLABLE">
+		{CALL insertMember(#{id},#{pwd},#{name},#{gender},#{email},#{phone})} 
+	</insert>
+
+	<select resultType="com.ezen.food.dto.MemberVO" id="findId_ByNP">
+		select * from Members where name=#{param1} and phone=#{param2} 
+	</select>
+	
+	<select resultType="com.ezen.food.dto.MemberVO" id="findIdbyId_Phone">
+		select * from Members where id=#{param1} and phone=#{param2} 
+	</select>
+	
+	<!--  -->		
+	<select id = "getRCount" resultType="_int">
+			select count(*) from check_view where id=#{param1}and to_date(c_checkdate,'yyyy-mm-dd') &lt; to_date(to_char(SYSDATE,'yyyy-mm-dd'))
+	</select>
+	<select id = "getLCount" resultType="_int">
+			select count(*) from check_view where id=#{param1}and to_date(c_checkdate,'yyyy-mm-dd') &gt;= to_date(to_char(SYSDATE,'yyyy-mm-dd'))
+	</select>
+	<select id = "getWCount" resultType="_int">
+			select count(*) from wish_view where id=#{param1}
+	</select>
+	<delete id="deleteReserve">
+		delete from checked_rest where cseq = #{param1}
+	</delete>
+	
+	<select id="getCheckRest"  resultType="com.ezen.food.dto.CheckRestVO">
+
+		select * from check_view where cseq = #{param1}
+	</select>
+	
+	<update id="reserveUpdate" parameterType="com.ezen.food.dto.CheckRestVO">
+		update checked_rest set c_checkdate=#{c_checkdate}, c_checkdatetime=#{c_checkdatetime}, c_people=#{c_people} where rseq = #{rseq} and id = #{id}
+	</update>
+	
+	
+	<select id="getWishlist" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.WishVO">
+			select * from (
+			select * from (
+			select rownum as rn, m.* from ((select * from wish_view where id=#{param2}) m)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+	</select>
+</mapper>

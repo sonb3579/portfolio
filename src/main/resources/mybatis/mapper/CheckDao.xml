@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.food.dao.ICheckDao">
+
+
+<!-- 예약변경
+	<update id="reserveUpdate" parameterType="com.ezen.food.dto.CheckRestVO">
+		update checked_rest set c_checkdate=#{c_checkdate}, c_checkdatetime=#{c_checkdatetime}, c_people=#{c_people} where id=#{id} and cseq=#{cseq}
+	</update>
+	 -->
+
+	<select id="getRecentCheck" parameterType = "com.ezen.food.dto.CheckRestVO" resultType="com.ezen.food.dto.CheckRestVO">
+	
+		select * from check_view where id='one'
+	
+	
+	
+	
+	   <!-- select rownum as rn, c.* from ((select * from check_view where id=#{param2}  and to_date(c_checkdate,'yyyy-mm-dd') &lt;= to_date(to_char(SYSDATE,'yyyy-mm-dd'))) c )-->
+
+	</select>
+
+
+
+</mapper>

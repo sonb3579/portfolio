@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.food.dao.IAdminDao">
+
+	<resultMap  id="adminMap" type="java.util.HashMap"></resultMap>
+	
+	
+	<!-- admin 로그인시 사용 -->
+		<select id="getAdmin" resultType="com.ezen.food.dto.AdminVO">
+			select * from workers where workId= #{param1}
+		</select>
+	
+	<!-- submenu 클릭시 보여지는 List (restaurant, member, notice) 호출  -->
+		<select id = "getAllRestCount" resultType="_int">
+			select count(*) from restaurant where r_name like '%'||#{param1}||'%'
+		</select>
+		
+		<select id="getRest" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.RestVO">
+			select * from (
+			select * from (
+			select rownum as rn, r.* from ((select * from restaurant  where r_name like '%'||#{param2}||'%' order by rseq desc, ryn asc) r)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+		</select>
+		
+		<select id = "getAllMemberCount" resultType="_int">
+			select count(*) from Members where name like '%'||#{param1}||'%'
+		</select>
+		
+		<select id="getMember" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.MemberVO">
+			select * from (
+			select * from (
+			select rownum as rn, m.* from ((select * from Members where name like '%'||#{param2}||'%' ) m)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+		</select>
+		
+		<select id = "getAllNoticeCount" resultType="_int">
+			select count(*) from notice where subject like '%'||#{param2}||'%'  or  content like '%'||#{param2}||'%'
+		</select>
+		
+		<select id="getNotice" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.NoticeVO">
+			select * from (
+			select * from (
+			select rownum as rn, n.* from ((select * from notice where subject like '%'||#{param2}||'%' or  content like '%'||#{param2}||'%' order by nseq desc ) n)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+		</select>
+	
+		<insert id = "insertNotice" parameterType="com.ezen.food.dto.NoticeVO">
+			insert into notice (nseq, workId, subject, content) values(notice_seq.nextVal, #{workId}, #{subject}, #{content})
+		</insert>
+		
+		<select id="noticeDetail" parameterType="_int" resultType="com.ezen.food.dto.NoticeVO">
+			select * from notice where nseq = #{param1}
+		</select>
+		
+		<update id="updateNotice" parameterType="com.ezen.food.dto.NoticeVO">
+			update notice set subject = #{subject}, content=#{content} where nseq = #{nseq}
+		</update>
+		
+		<delete id="deleteNotice">
+			delete from notice where nseq = #{param}
+		</delete>
+		
+		<select id="getMemberDetail" resultType="com.ezen.food.dto.MemberVO">
+			select * from Members where id = #{param}
+		</select>
+		
+		<select id="getMemberReview" resultType="com.ezen.food.dto.ReviewVO">
+			select * from review_view where id = #{param}
+		</select>
+		
+		<delete id="deleteMember"  parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL deleteMember(#{id})}
+		</delete>
+		
+		<delete id="deleteReview">
+			delete from review where rwseq = #{param}
+		</delete>
+		
+		<select id="getRestDetail" resultType="com.ezen.food.dto.RestVO">
+			select * from restaurant where rseq = #{param}
+		</select>
+		
+		<select id="getImageDetail" resultType="com.ezen.food.dto.ImagesVO">
+			select * from images where rseq = #{param}
+		</select>
+		
+		<select id="getMenuDetail" resultType="com.ezen.food.dto.MenuVO">
+			select * from Menu where rseq = #{param}
+		</select>
+		
+		<update id="updateMenu" parameterType="com.ezen.food.dto.MenuVO">
+			update Menu set r_mname1 = #{r_mname1}, r_mprice1 = #{r_mprice1}, r_mname2 = #{r_mname2}, r_mprice2 = #{r_mprice2} where rseq = #{rseq}
+		</update>
+		
+		<update id="updateRest" parameterType="com.ezen.food.dto.RestVO">
+			update restaurant set r_kind=#{r_kind}, r_name=#{r_name}, r_address=#{r_address}, 
+					r_phone = #{r_phone}, r_runtime=#{r_runtime},
+				    r_content=#{r_content}, r_map=#{r_map}, ryn=#{ryn} where rseq = #{rseq}
+		</update>
+		
+		<update id="updateImage" parameterType="com.ezen.food.dto.ImagesVO">
+			update images set r_img = #{r_img}, m_img=#{m_img}, s_img=#{s_img} where rseq = #{rseq}
+		</update>
+		
+
+		<delete id="deleteRest"  parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL deleteRest(#{rseq})}
+		</delete>
+		
+		<select id="getBannerList" parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL getBannerList(#{ref_cursor, mode=OUT,  jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap })}
+		</select>
+		
+		<insert id="insertBanner" parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL insertBanner(#{name}, #{useyn}, #{order_seq}, #{image} )}
+		</insert>
+		
+		<select id="getBannerDetail" parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL getBannerDetail(#{bseq}, 
+				#{ref_cursor, mode=OUT,  jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})}
+		</select>
+		
+		<update id="updateBanner" parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL updateBanner(#{bseq},#{name}, #{useyn}, #{order_seq}, #{image} )}
+		</update>
+		
+		<delete id = "deleteBanner">
+			delete from banner where bseq = #{param}
+		</delete>
+</mapper>

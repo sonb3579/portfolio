@@ -1,0 +1,333 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+/* 식당주인 로그인 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height:1870px;
+}
+
+.login-form h1 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.int-area {
+  width: 400px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.int-area:first-child {
+  margin-top: 0;
+}
+
+.int-area input {
+  width: 100%;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  outline: none;
+}
+
+.int-area label {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  font-size: 18px;
+  transition: top 0.5s ease;
+}
+
+.int-area label.warning {
+  color: red !important;
+  animation: warning 0.3s ease;
+  animation-iteration-count: 3;
+}
+
+@keyframes warning {
+  0% {
+    transform: translateX(-8px);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+.int-area input:focus + label,
+.int-area input:valid + label {
+  top: -2px;
+  font-size: 13px;
+  color: #FF8224;
+}
+
+.btn-area {
+  margin-top: 30px;
+}
+
+.btn-area button {
+  width: 100%;
+  height: 50px;
+  margin: 0px 10px;
+  color: #fff;
+  background: #FF8224;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.caption {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.caption a {
+  margin: 0 20px;
+  font-size: 15px;
+  color: blue;
+  text-decoration: none;
+}
+
+/* 0823 주환 */
+
+/* qna 관련 */
+
+#QnaForm{border: 1px soild gray;  border-collapse: collapse; width:600px; height:300px; background: #F8F8FF;}
+
+#noticebtn1{margin-left:350px; float:left; margin-top:20px; width: 100px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999;}
+#noticebtn2{margin-left:30px; float:left; margin-top:20px; width: 100px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999; }
+ 
+.blankQ { width: 600px; height: 500px; margin: 0 auto;}
+ 
+footer { letter-spacing:1px; margin: 10px 0 0 0;	height: 120px; width:100%; position: absolute; 
+        background-color: #4e4e4e; color: #d6d6d6; bottom:0px; text-align:left; }	
+#footer1{margin:0 auto; width:100%; height:90px; padding-top:10px;}
+#footerImg { float:left; width:120px; height: 90px; overflow:hidden; margin-left:15%; }
+footer #copy {width: 400px; float:left; font-size: 75%; margin-top:10px; }
+footer #footercsBox {float:left; font-size: 75%; line-height: 2px;font-weight: bold; width:230px;
+			 height: 80px; margin-top: -15px; text-align:center; }
+footer #footercs {font-size: 75%; line-height: 20px;font-weight: bold; width:230px;
+			 height: 80px;  text-align:center; }
+footer #footermessage{width: 140px; margin-left: 60px; height: 40px; padding-top: 20px;font-size:200%;}
+footer a { color:orange; font-size:110%; text-decoration:none; line-height:10px;}
+footer #footerAdmin {width:230px; height:20px;}
+
+/*header*/
+
+header {position:relative;z-index:2} 
+.header{	position:fixed;	z-index:100;	top:0;	left:0;	width:100%;	height:80px;	background:#4e4e4e; color: #d6d6d6; overflow:hidden;
+			box-shadow: 1px 2px 2px 2px gray;	-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; }
+body{margin:0; padding:0; font-size:0.75em; position:relative;z-index:1; }
+#logo{	position:relative;	margin-left:100px;	margin-top:-18px;	float:left;}
+#headerImg { float:left; width:120px; height: 80px; overflow:hidden; margin-left:15%; }
+.header a{ text-decoration:none; font-size:120%; font-weight:bold; color: #d6d6d6;}	
+
+
+
+#myRestControl{
+	float:left; margin-right: auto;
+}
+
+#myRestControl ul{	list-style:none;	padding:0;	margin:0;	display:inline-block;}
+#myRestControl ul li{	float:left;	margin-right:50px;font-size: 1.15em;	line-height:80px;	color: #d6d6d6;}
+#myRestControl ul li a{color: #d6d6d6; text-decoration:none;}
+#myRestControl ul li a:hover{color: orange;}
+
+#loginUser{
+	float:right;
+}
+
+#loginUser ul{	list-style:none;	padding:0;	margin:0;	display:inline-block;}
+#loginUser ul li{	float:left;	margin-right:50px;font-size: 1.15em;	line-height:80px;	color: #d6d6d6;}
+#loginUser ul li a{ color: #d6d6d6; text-decoration:none;}
+#loginUser ul li a:hover{color: orange;}
+
+#restList th{  background: #F8F8FF;}
+#restList td{ text-align:center;}
+#restList {border-top: 1px solid orange; border-bottom: 1px solid orange;}
+#restList a { text-decoration:none !important; color: black; }
+#restList a:hover { text-decoration:none !important; color: black; }
+
+#paging a{ text-decoration:none; font-weight:bold;}	
+
+
+/*join*/
+#join_box{width:1200px;  margin: 0 auto;}
+#join_box2{margin:0 auto; width:610px;}
+#join_table{margin:0 auto; width:360px;}
+#join_button{margin:0 auto;height:18pt;width:193pt;cursor:pointer;}
+#join_table tr{margin-top:10px;}
+#join_table th{width:100px; font-size:115%;}
+#join_table td{width:255px; font-size:115%;line-height:32px;}
+#join_chk{width:50px;}
+#join_button_2{width:360pt; left:65px;position:relative;height:30pt;cursor:pointer;}
+#join_gen{width:50px;cursor:pointer;}
+
+.join-form {	position: relative;	top: 80px;	text-align: -webkit-center;}
+.join-form h1 {  font-size: 32px;  text-align: center;  margin-bottom: 50px;}
+.input-area {	position: relative;	width: 320px;	height: 80px;}
+.input-area p{	margin-bottom: 2px;	margin-left: 10px;	float: left;}
+.input-area #input_id {	position: relative;	width: 300px;	height: 40px;}
+.input-area #idcheck_button {	position: absolute;    width: 90px;    height: 40px;   
+											left: 221px;    top: 38px;    margin: 0 auto;    border-radius: 3px;}
+.input-area #input_pwd {	position: relative;	width: 300px;	height: 40px;}
+.input-area #pwd_check {	position: relative;	width: 300px;	height: 40px;}
+.input-area  #input_name {	position: relative;	width: 300px;	height: 40px;}
+
+.input-area #input_email {	position: relative;	width: 300px;	height: 40px;}
+.input-area #input_phone {	position: relative;	width: 300px;	height: 40px;}
+.input-area #gender {	position: absolute;    width: 110px;    height: 40px;    left: 200px;    top: 45px;    margin: 0 auto;}
+.input-area #join_gen {	cursor:pointer;	width: 15px;}
+
+
+
+table#detailList{  word-break:break-all;	height:auto; table-layout:fixed; width: 800px; }
+table#detailList th{
+	width:200px;
+	height: auto;
+}
+table#detailList th, td{
+	border: 1px solid gray;
+}
+
+pre{overflow:scroll;}
+
+  table#detailList textarea {
+    width: 100%;
+    height: 6.25em;
+    border: none;
+    resize: none;
+  }
+  
+table#updateList{  position: relative; word-break:break-all;	height:auto; table-layout:fixed; width: 800px; }
+table#updateList th{
+	width:200px;
+	height: auto;
+}
+table#updateList th, td{
+	border: 1px solid gray;
+}
+
+pre{overflow:scroll;}
+
+  table#updateList textarea {
+    width: 100%;
+    height: 6.25em;
+    border: none;
+    resize: none;
+  }
+
+	 
+
+#formList{margin-bottom:300px}
+#detailList{margin-top:100px; width:750px; }
+#updateList{margin-top:100px; width:750px; }
+
+.detailButton {
+	position: relative;
+	top: 100px;
+	
+	
+}
+
+#restUpdate{
+	width: 100px; 
+	border-radius: 5px; 
+	background-color: #eb5534; 
+	color: #333; 
+	text-align: center; 
+	color:white;
+ 	text-decoration: none; 
+ 	box-shadow: 3px 3px 3px #999999; 
+ 	margin-top:50px;
+ 	}
+ 	
+#go_list{
+	width: 100px; 
+	border-radius: 5px; 
+	background-color: #eb5534; 
+	color: #333; 
+	text-align: center; 
+	color:white;
+ 	text-decoration: none; 
+ 	box-shadow: 3px 3px 3px #999999; 
+ 	margin-left:20px; 
+ 	margin-top:50px;
+ 	}
+#newCheck{
+	width: 100px; 
+	border-radius: 5px; 
+	background-color: #eb5534; 
+	color: #333; 
+	text-align: center; 
+	color:white;
+	 text-decoration: none; 
+	 box-shadow: 3px 3px 3px #999999; 
+	 margin-left:20px; 
+	 margin-top:50px;
+	 }
+	 
+ #completeCheck{
+ width: 100px; 
+ border-radius: 5px; 
+ background-color: #eb5534; 
+ color: #333; 
+ text-align: center; 
+ color:white;
+ text-decoration: none; 
+ box-shadow: 3px 3px 3px #999999; 
+ margin-left:20px; 
+ margin-top:50px;
+ }
+ 
+#rest_save{
+	width: 100px; 
+	border-radius: 5px; 
+	background-color: #eb5534; 
+	color: #333; 
+	text-align: center; 
+	color:white;
+ 	text-decoration: none; 
+ 	box-shadow: 3px 3px 3px #999999; 
+ 	margin-top:50px;}
+ 
+
+#nRestCheck th{  background: #F8F8FF;}
+#nRestCheck td{ text-align:center;}
+#nRestCheck {border-top: 1px solid orange; border-bottom: 1px solid orange;}
+
+ #backButton{
+ 	width: 100px;
+    position: relative;
+    }
+
+
+#yRestCheck th{  background: #F8F8FF;}
+#yRestCheck td{ text-align:center;}
+#yRestCheck {border-top: 1px solid orange; border-bottom: 1px solid orange;}
+
+table#restList2 th, td{
+	border: 1px solid gray;
+}
+

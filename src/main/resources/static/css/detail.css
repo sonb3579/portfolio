@@ -1,0 +1,489 @@
+@charset "UTF-8";
+
+#dtbox {
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+	top: 80px;
+	position: relative;
+}
+
+#imgplace {
+	width: 1000px;
+	height: 415px;
+	/*overflow: hidden;*/
+	overflow-y:hidden; overflow-x:scroll;
+	border-radius: 5px 5px 5px 5px;
+	background-color: #F8F8FF;
+	position: relative;
+}
+
+#imgplace::-webkit-scrollbar {width: 10px; height:15px;}
+#imgplace::-webkit-scrollbar-thumb {
+    background-color: orange;
+    max-height: 100px;
+  }
+#imgplace::-webkit-scrollbar-track {
+    background-color: #FFE0C9;
+    box-shadow: inset 0px 0px 5px white;
+}
+
+#main_img1 {
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	position: absolute
+}
+#main_img2 {
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	position: absolute;
+	left:500px;
+}
+#main_img3 {
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	position: absolute;
+	left:1000px;
+}
+
+.dtb {
+	width: 1000px;
+	height: 350px;
+	margin: 0 auto;
+}
+
+.dtblank {
+	width: 500px;
+	height: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+#dtrw {
+	width: 500px;
+	height: 350px;
+	margin: 0 auto;
+	border-radius: 5px 5px 5px 5px;
+	border: solid #F8F8FF 0.5px;
+}
+
+#dtrw td {
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#icon {
+	float: left;
+}
+
+#detail {
+	width: 500px;
+	height: 350px;
+	border-top: orange;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+	border: solid #F8F8FF 0.5px;
+}
+
+#detail th {
+	text-align: left;
+}
+
+#detail td {
+	width: 150px;
+}
+
+#detail_2 {
+	width: 400px;
+	height: auto;
+	margin: 0 auto;
+}
+
+#detail_3 {
+	width: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	line-height: 1.2;
+	height: 9.6em;
+	text-align: left;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 8;
+	-webkit-box-orient: vertical;
+}
+
+#menu_img {
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: right;
+	margin: 0 auto;
+}
+
+#box2 {
+	width: 1000px;
+	height: 520px;
+}
+
+#map {
+	float: left;
+	width: 600px;
+	height: 450px;
+	overflow: hidden;
+	border-radius: 8px 8px 8px 8px;
+	border: 1px solid orange;
+}
+
+#location {
+	width: 380px;
+	height: 450px;
+	float: right;
+}
+
+#location table {
+	text-align: left;
+	margin-top: 20px
+}
+
+#location th {
+	width: 370px;
+	padding: 5px 0 5px 10px;
+}
+
+#location td {
+	width: 370px;
+	padding: 5px 0 20px 10px;
+}
+
+hr {
+	background-color: orange;
+}
+
+.blank2 {
+	width: 950px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.blank3 {
+	width: 950px;
+	height: 100%;
+	margin: 0 auto;
+	/*min-height: 300px;*/
+}
+
+.blank3 th {
+	border-bottom: 1px solid orange;
+}
+
+.blank3 tr td {
+	min-height: 30px;
+	height: 100%;
+}
+
+#reviewbox {
+	min-height: 120px;
+	position: relative;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#reviewstar {
+	float: left;
+	width: 60px;
+	height: 120px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#reviewid {
+	width: 790px;
+	height: 60px;
+	float: left;
+	line-height: 60px;
+	font-size: 120%;
+	font-weight: bold;
+	margin-left: 20px
+}
+
+#reviewedit {
+	width: 60px;
+	height: 60px;
+	float: left;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#reviewcontent {
+	width: 810px;
+	min-height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 80px;
+}
+
+#rvbutton {
+	width: 50px;
+	height: 85px;
+	color: orange;
+	font-weight: bold;
+	border: 1px solid orange;
+	border-radius: 5px 5px 5px 5px;
+	float: right;
+	background-color: white;
+	cursor: pointer
+}
+
+#rvbutton2 {
+	width: 50px;
+	height: 40px;
+	color: orange;
+	font-weight: bold;
+	border: 1px solid orange;
+	border-radius: 5px 5px 5px 5px;
+	background-color: white;
+	cursor: pointer
+}
+
+textarea {
+	border: 1px solid orange;
+}
+
+.blank4 {
+	width: 950px;
+	height: 1000px;
+	margin: 0 auto;
+}
+
+.minidiv {
+	width: 300px;
+	height: 300px;
+	border: 0.5px solid orange;
+	float: left;
+	margin: 6px
+}
+
+.minidiv1 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -1;
+	background-color: #EEEEEE;
+}
+
+.minidiv2 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-weight: bold;
+	font-size: 200%;
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+/*예약페이지*/
+#revbox {
+	width: 800px;
+	height: 1000px;
+	margin: 0 auto;
+	top: 80px;
+	position: relative;
+}
+
+.revbox1 {
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.revbox2 {
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
+	border: 1px solid #eeeeee;
+	line-height: 49px;
+}
+
+.revbox3 {
+	width: 500px;
+	height: 10px;
+	margin: 0 auto;
+}
+
+input[type='date']::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+input[type='date']:focus::before, input[type='date']:valid::before {
+	display: none;
+}
+
+#selector {
+	border: none;
+	width: 490px;
+	height: 45px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector1 {
+	border: none;
+	width: 500px;
+	height: 50px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector2 {
+	border: none;
+	width: 500px;
+	height: 50px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector3 {
+	border: none;
+	width: 100%;
+	height: 50px;
+	color: gray;
+	background: #F8F8FF;
+	cursor: pointer
+}
+
+.startRadio {
+	z-index: -1;
+}
+
+#moreReview {
+	width: 700px;
+	height: 50px;
+	margin: 0 auto;
+	line-height: 49px;
+	cursor: pointer
+}
+
+button {
+	cursor: pointer;
+}
+
+#menu_box1 {
+	width: 160px;
+	height: 25px;
+	float: left;
+}
+
+#menu_box2 {
+	width: 100px;
+	height: 25px;
+	float: left;
+}
+
+#menu_box3 {
+	width: 130px;
+	height: 25px;
+	float: left;
+	text-align: right;
+}
+
+/* QnA 관련 CSS */
+
+#reviewbox {
+	min-height: 120px;
+	position: relative;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#qnaUser {
+	float: left;
+	width: 60px;
+	height: 120px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+	border: solid blue 1px;
+	line-height: 120px;
+}
+
+#qnaBoss {
+	float: left;
+	width: 60px;
+	height: 120px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+	border: solid red 1px;
+	line-height: 120px;
+}
+
+
+
+#qnacontent {
+	width: 810px;
+	min-height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 80px;
+	font-size:120%;
+}
+
+#Qselector3 {
+	border: none;
+	width: 100%;
+	height: 50px;
+	color: orange;
+	border: solid orange 1px;
+	cursor: pointer;
+	background:white;
+}
+
+
+#QnaForm{border: 1px soild gray;  border-collapse: collapse; width:600px; height:300px; background: #F8F8FF;}
+
+#noticebtn1{margin-left:200px; float:left; margin-top:20px; width: 100px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999;}
+#noticebtn2{margin-left:30px; float:left; margin-top:20px; width: 100px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999; }
+ 
+ 
+.blankQ {
+	width: 600px;
+	height: 500px;
+	margin: 0 auto;
+}

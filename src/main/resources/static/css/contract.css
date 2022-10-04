@@ -1,0 +1,16 @@
+@charset "UTF-8";
+#contract{width: 800px; margin:0 auto; height:1000px; overflow-y:scroll; overflow-x:hidden;
+background-color: #f2f2f2;padding:30px 30px 30px 30px;}
+#ctr_btn{ width: 100pt;height:50px;margin:0 auto; border:2px solid #2f3542; background:gray;
+	color:white; font-weight:bold; font-size:110%; cursor:pointer; border-radius:15px 15px 15px 15px;}
+#ctr_box{margin:0 auto;width:134px;}
+#contract::-webkit-scrollbar {width: 10px;}
+#contract::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+  }
+#contract::-webkit-scrollbar-track {
+    background-color: gray;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+}

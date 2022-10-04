@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.food.dao.IMainDao">
+
+	<resultMap  id="mainMap" type="java.util.HashMap"></resultMap>
+	<resultMap  id="mainMap2" type="java.util.HashMap"></resultMap>
+	<resultMap  id="mainMap3" type="java.util.HashMap"></resultMap>
+	<resultMap  id="mainMap4" type="java.util.HashMap"></resultMap>
+	
+	<select id="getNewRestList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getNewRestList( #{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap }
+		 ) }
+	</select>
+	
+	<select id="getKindList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getKindList( #{kind}, #{startNum}, #{endNum}, #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getKindCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getKindCount( #{kind}, #{cnt, mode=OUT, jdbcType=INTEGER })}
+	</select>
+	
+	<select id="getReviewsPage" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getReviewsPage( #{rseq}, #{startNum}, #{endNum}, #{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getReviewCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getReviewCount( #{rseq}, #{cnt, mode=OUT, jdbcType=INTEGER })}
+	</select>
+	
+	<select id="getDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getDetail( #{rseq},  #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getReviews" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getReviews( #{rseq},  #{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getImages" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getImages( #{rseq},  #{ref_cursor3, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getKindListInDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getKindListInDetail( #{kind}, #{ref_cursor4, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getMenu" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getMenu( #{rseq}, #{ref_cursor5, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<insert id = "addWish" parameterType="com.ezen.food.dto.WishVO">
+			insert into wishlist (wseq, result, rseq, id) values (wish_seq.nextVal, '2', #{param1}, #{param2})
+	</insert>
+	
+	<select id = "getResult" resultType="com.ezen.food.dto.WishVO">
+			select * from wishlist where id= #{param1} and rseq= #{param2}
+	</select>
+	
+	<delete id = "removeWish" parameterType="com.ezen.food.dto.WishVO">
+			delete from wishlist where wseq=#{param1}
+	</delete>
+	
+	<insert id = "reserveInsert" parameterType="com.ezen.food.dto.CheckRestVO">
+			insert into checked_rest(cseq,id, rseq, c_checkdate, c_checkdatetime, c_people) 
+			values(cseq_seq.nextVal, #{id}, #{rseq}, #{c_checkdate}, #{c_checkdatetime} , #{c_people})
+	</insert>
+	
+	<insert id = "reviewSubmit" parameterType="com.ezen.food.dto.ReviewVO">
+			insert into review (rwseq, rseq, id, content, rating1) 
+			values(rwseq_seq.nextval , #{rseq}, #{id}, #{content} , #{rating1} )
+	</insert>
+	
+	<select id = "getAvgRating" resultType="_int">
+			select avg(rating1) as avg from review where rseq=#{param1}
+	</select>
+	
+	<insert id = "pushRating" parameterType="com.ezen.food.dto.RestVO">
+			update restaurant set rating=#{param1} where rseq=#{param2}
+	</insert>
+	
+	<insert id = "updateReview" parameterType="com.ezen.food.dto.ReviewVO">
+			update review set rating1=#{rating1}, content=#{content} where rwseq=#{rwseq}
+	</insert>
+	
+	<insert id = "reviewDelete" parameterType="com.ezen.food.dto.ReviewVO">
+			delete from review where rwseq=#{param1}
+	</insert>
+	
+	<select id="getReviewOne" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getReviewOne( #{rwseq},  #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getBestList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getBestList( #{kind}, #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id = "getAllSearchRestCount" resultType="_int">
+		select count(*) from restaurant where ryn = 'y' and r_name like '%'||#{param1}||'%'
+	</select>
+		
+	<select id="getSearchRest" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.RestVO">
+		select * from (
+		select * from (
+		select rownum as rn, n.* from ((select * from restaurant where ryn='y' and r_name like '%'||#{param2}||'%' order by rseq desc ) n)
+		) where rn &gt;= #{param1.startNum}
+		) where rn &lt;= #{param1.endNum}
+	</select>
+	
+	<select id="getBannerList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getBannerList( #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<select id="getQnaCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getQnaCount( #{rseq}, #{cnt, mode=OUT, jdbcType=INTEGER })}
+	</select>
+	
+	<select id="getQnaList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getQnaList( #{rseq}, #{startNum}, #{endNum}, #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=mainMap } ) }
+	</select>
+	
+	<insert id = "insertQna" parameterType="com.ezen.food.dto.QnaVO">
+			insert into qna (qseq, subject, content, id, rseq, qyn, businessId) 
+			values(qna_seq.nextval , #{subject}, #{content}, #{id} , #{rseq} , #{qyn}, #{businessId})
+	</insert>
+	
+	<delete id="deletetQna" parameterType="com.ezen.food.dto.QnaVO" >
+		delete from qna where qseq=#{qseq}
+	</delete>
+</mapper>

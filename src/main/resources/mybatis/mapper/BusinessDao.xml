@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.ezen.food.dao.IBusinessDao">
+
+	<resultMap  id="businessMap" type="java.util.HashMap"></resultMap>
+	
+	<!-- 레스토랑 사장 로그인 -->
+	<select id="getBusiness" resultType="com.ezen.food.dto.BusinessVO">
+		select*from business where businessId=#{param1}
+	</select>
+	
+	<!-- BusinessPage 사용될 List -->
+	<select id="getRest" resultType="com.ezen.food.dto.RestVO">
+		select * from restaurant where businessId=#{param1}
+	</select>
+	<!-- 0824 수정 -->
+	<select id="getMyRestList" parameterType="com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.RestVO">
+			select * from (
+			select * from (
+			select rownum as rn, r.* from ((select * from restaurant  where businessId=#{param3} and r_name like '%'||#{param2}||'%' order by rseq desc) r)
+			) where rn &gt;= #{param1.startNum}
+			) where rn &lt;= #{param1.endNum}
+	</select>
+	<!-- 0823 수정 -->
+	<select id="getAllCount" resultType="_int">
+		select count(*) from restaurant where businessId=#{param2} and r_name like '%'||#{param1}||'%'
+	</select>
+	
+	<select id="getRestDetail" resultType="com.ezen.food.dto.RestVO">
+		select * from restaurant where rseq = #{param}
+	</select>
+			
+	<select id="getImageDetail" resultType="com.ezen.food.dto.ImagesVO">
+		select * from images where rseq = #{param}
+	</select>
+		
+	<select id="getMenuDetail" resultType="com.ezen.food.dto.MenuVO">
+		select * from Menu where rseq = #{param}
+	</select>
+	
+	
+
+	<select id = "getAllQnaCount" resultType="_int">
+		select count(*) from qna where subject like '%'||#{param2}||'%'  or  content like '%'||#{param2}||'%'
+	</select>
+		
+	<select id="getQna" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.QnaVO">
+		select * from (
+		select * from (
+		select rownum as rn, n.* from ((select * from qna where businessid=#{param2}  order by (case when reply is null then 1 else 2 end),  qseq desc ) n)
+		) where rn &gt;= #{param1.startNum}
+		) where rn &lt;= #{param1.endNum}
+</select>
+	
+	
+		
+	<!-- 0823 -->
+	<select id="qnaDetail" parameterType="_int" resultType="com.ezen.food.dto.QnaVO">
+		select * from qna where qseq = #{param1}
+	</select>
+	
+	<insert id = "insertQnaReply" parameterType="com.ezen.food.dto.QnaVO">
+			update qna set reply=#{reply} where qseq=#{qseq}
+	</insert>
+	
+	<insert id = "businessJoin" parameterType="com.ezen.food.dto.QnaVO">
+			insert into business ( businessId, businessPwd, name, phone, email) 
+			values(#{businessId}, #{businessPwd}, #{name}, #{phone}, #{email})
+	</insert>
+	
+	<select id="idCheck" resultType="com.ezen.food.dto.BusinessVO">
+		select * from business where businessId = #{param1}
+	</select>
+	
+	
+	
+	<select id = "getAllCheckCount1" resultType="_int">
+		select count(*) from checked_rest where rseq = #{param1} and cyn = 'n' and to_date(c_checkdate,'yyyy-mm-dd') &gt;= to_date(to_char(SYSDATE,'yyyy-mm-dd'))
+	</select>
+	
+	<select id = "getAllCheckCount2" resultType="_int">
+		select count(*) from checked_rest where rseq = #{param1} and cyn = 'y' and to_date(c_checkdate,'yyyy-mm-dd') &gt;= to_date(to_char(SYSDATE,'yyyy-mm-dd'))
+	</select>
+	
+	<select id="getNewCheck" parameterType = "com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.CheckRestVO">
+		select * from (
+		select * from (
+		select rownum as rn, n.* from ((select * from check_view where rseq=#{param2} and cyn = 'n' and to_date(c_checkdate,'yyyy-mm-dd') &gt;= to_date(to_char(SYSDATE,'yyyy-mm-dd')) order by  cseq desc ) n)
+		) where rn &gt;= #{param1.startNum}
+		) where rn &lt;= #{param1.endNum}
+	</select>
+	
+	<select id="getCompleteCheck" parameterType="com.ezen.food.dto.Paging" resultType="com.ezen.food.dto.CheckRestVO">
+		select * from (
+		select * from (
+		select rownum as rn, n.* from ((select * from check_view where rseq=#{param2} and cyn = 'y' and to_date(c_checkdate,'yyyy-mm-dd') &gt;= to_date(to_char(SYSDATE,'yyyy-mm-dd')) order by  cseq desc ) n)
+		) where rn &gt;= #{param1.startNum}
+		) where rn &lt;= #{param1.endNum}
+	</select>
+
+		
+	<update id="restConfirm">
+		update checked_rest set cyn= 'y' where cseq = #{param} 
+	</update>
+	
+	<update id="cancelConfirm">
+		update checked_rest set cyn= 'n' where cseq = #{param} 
+	</update>
+	
+	
+	<select id="getAllCountById" resultType="_int">
+		select count(*) from restaurant where businessId=#{param1} 
+	</select>
+	
+	<insert id="insertRest" parameterType="com.ezen.food.dto.RestVO">
+		insert into restaurant ( rseq, r_kind, r_name, r_address, r_phone, r_runtime, r_content, r_map, businessId, m_image )
+		values( res_seq.nextVal, #{r_kind}, #{r_name},  #{r_address}, #{r_phone}, #{r_runtime}, #{r_content}, #{r_map}, #{businessId}, #{m_image} )
+	</insert>
+	
+	<insert id="insertMenu" parameterType="com.ezen.food.dto.MenuVO">
+		insert into Menu (r_mseq ,rseq, r_mname1, r_mname2, r_mprice1, r_mprice2 )
+		values(menu_seq.nextVal, #{rseq}, #{r_mname1}, #{r_mname2}, #{r_mprice1}, #{r_mprice2} )
+	</insert>
+	
+	<insert id="insertImage" parameterType="com.ezen.food.dto.ImagesVO">
+		insert into images ( rseq, r_img, m_img, s_img )
+		values( #{rseq}, #{r_img}, #{m_img}, #{s_img} )
+	</insert>
+	
+	<select id="getRseq" resultType="_int">
+		select max(rseq) from restaurant where r_name=#{param1} and businessId=#{param2} 
+	</select>
+	
+	<update id="updateMenu" parameterType="com.ezen.food.dto.MenuVO">
+		update Menu set r_mname1 = #{r_mname1}, r_mprice1 = #{r_mprice1}, r_mname2 = #{r_mname2}, r_mprice2 = #{r_mprice2} where rseq = #{rseq}
+	</update>
+		
+	<update id="updateRest" parameterType="com.ezen.food.dto.RestVO">
+		update restaurant set r_kind=#{r_kind}, r_name=#{r_name}, r_address=#{r_address}, 
+					r_phone = #{r_phone}, r_runtime=#{r_runtime},
+				    r_content=#{r_content}, r_map=#{r_map}, ryn=#{ryn} where rseq = #{rseq}
+	</update>
+		
+	<update id="updateImage" parameterType="com.ezen.food.dto.ImagesVO">
+		update images set r_img = #{r_img}, m_img=#{m_img}, s_img=#{s_img} where rseq = #{rseq}
+	</update>
+	
+	<delete id="myDeleteRest"  parameterType="java.util.HashMap" statementType="CALLABLE">
+			{CALL myDeleteRest(#{rseq})}
+	</delete>
+	
+</mapper>
+    

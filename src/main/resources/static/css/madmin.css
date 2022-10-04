@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.headerwrap{width:100%; height:400px; }
+.clear{ clear:both;}
+#adminHeader{position:relative; width:100%; margin: 0 auto; height:150px; background-color:#FF8224; opacity:0.7;}
+#adminHeader img{float:left;}
+#adminHeader h1{float:left; margin-left:50px; margin-top:40px; opacity:1; color:black; font-size:280%; }
+
+#logoutbtn{float:right; margin-right:50px; margin-top:60px; width: 100px; border-radius: 5px; background-color: #FC3; color: #333; text-align: center;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999; }
+ 
+.btn{width: 120px; height:50px; font-size:50%; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999; }
+
+
+
+/* admin의 header 안에 있는 sub_menu 스타일 */
+div#sub_menu { width:100%;  }
+div#sub_menu ul { width:100%; list-style:none;	padding:0;	margin:0;	display:inline-block;}
+div#sub_menu ul li {	float:left; margin-right:80px; font-size:200%; font-weight:bold; }
+div#sub_menu ul li:last-child{margin-right:0;}
+div#sub_menu a { text-decoration: none; color: orange; display: block;  }
+div#sub_menu a:hover { border-bottom: 1px solid orange; }
+
+
+/*restList*/
+table#restList {   /* border 사이의 간격 없앰 */  border-top: 2px solid orange;
+ border-bottom: 1px solid #333; width: 1000px; /* 전체 테이블 길이 설정 */  margin-top:20px;
+ margin-bottom: 20px; }
+table#restList tr,td{border:none; font-size:80%;}
+table#restList a{text-decoration:none; color:black;}
+
+ 
+ 
+/*memberDetail*/
+#title{font-size:200%;}
+table#memberDetail{ margin-left:100px; width:1000px; height:800px;}
+table#memberDetail th, td{border:none; font-size:300%;}
+table#memberDetail a{color:black;}
+#outMember1{margin-left:180px; float:left; margin-top:20px;height:50px; font-size: 110%; width: 170px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999;}
+#outMember2{margin-left:30px; float:left; margin-top:20px; height:50px; font-size: 110%; width: 170px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999; }
+ 
+ 
+ /*memberReview*/
+ table#memberReview{width:1000px;}
+ table#memberReview th, td{border:none; font-size:300%; text-align:center;}
+ 
+ /*bannerList*/
+ #delete2{ margin-top:20px;height:50px; font-size: 90%; width: 110px; border-radius: 5px; background-color: #eb5534; color: #333; text-align: center; color:white;
+ text-decoration: none; box-shadow: 3px 3px 3px #999999;}

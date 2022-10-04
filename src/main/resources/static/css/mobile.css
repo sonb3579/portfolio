@@ -1,0 +1,1045 @@
+@charset "UTF-8";
+
+body{margin:0; padding:0; font-size:0.75em; position:relative;z-index:1; height:auto; min-height:100%; padding-bottom:327px; }
+
+table#restList2 th, td{
+	border: 1px solid gray;
+}
+
+
+/* header*/
+.header{position:fixed;z-index:100;top:0;	left:0; width:100%;	height:250px;	background:#FFF; overflow:hidden;
+			box-shadow: 1px 2px 2px 2px gray;	-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; }
+#logo{text-align:center;}
+#logo img{position:relative; margin:0 auto;}
+#menuBox{width:100%;}
+#menubar{width:480px; float:left; text-align:center;}
+#menubar ul{	list-style:none;	padding:0;	margin:0;	display:inline-block;}
+#menubar ul li{	float:left;	margin-right:50px;	line-height:80px; font-size: 1.70em;	color:#FF8224; font-weight:bold;}
+#menubar ul li:last-child{margin-right:0;}
+#menubar ul li a{color:#FF8224; text-decoration:none;}
+
+#myMenu{width:350px; float:right;}
+#myMenu ul{list-style:none;	padding:0;	margin:0;	display:inline-block;}
+#myMenu ul li{	float:left; margin-left:20px; 	line-height:80px; font-size: 1.70em; color:#424242; font-weight:bold;}
+#myMenu ul li a{color:#424242; text-decoration:none;}
+
+
+/*footer*/
+footer { letter-spacing:1px; margin: 10px 0 0 0;	height: 120px; width:100%; position: absolute; 
+        background-color: #4e4e4e; color: #d6d6d6; bottom:0px; text-align:left; }	
+#footer1{margin:0 auto; width:100%; height:90px; padding-top:10px;}
+#footerImg { float:left; width:120px; height: 90px; overflow:hidden; margin-left:15%; }
+footer #copy {width: 400px; float:left; font-size: 75%; margin-top:10px; }
+footer #footercsBox {float:left; font-size: 75%; line-height: 2px;font-weight: bold; width:230px;
+			 height: 80px; margin-top: -15px; text-align:center; }
+footer #footercs {font-size: 75%; line-height: 2px;font-weight: bold; width:230px;
+			 height: 80px;  text-align:center; }
+footer #footermessage{width: 140px; margin-left: 60px; height: 40px; padding-top: 30px;font-size:200%;}
+footer a { color:orange; font-size:110%; text-decoration:none; line-height:10px;}
+footer #footerAdmin {width:230px; height:20px;}
+
+/*main페이지에서 검색창부분*/
+.container{	position: relative;  	text-align: center;  	color: white;}
+.subpic img{	margin-top:80px;	width:100%;	height:600px;	overflow:hidden;}
+
+.introText{  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%, -20%);  font-size:260%; 
+				 font-weight:bold;   width:800px;}
+#scb{width: 550px; height: 50px; margin: 0 auto; top: 68%; left: 50%;
+    background:white;position: absolute;transform: translate(-50%, 80%); border-radius: 15px 15px 15px 15px;}
+#scbimg{width: 50px;height: 50px; float:left; line-height:50px; background:white; border-radius: 15px 15px 15px 15px;}
+#scbimg2{width: 25px; height: 25px; line-height:50px; background:white;  margin-top:12.5px;}
+#scbtext{width: 400px; height: 50px; float:left; line-height:50px; background:white;}
+#scbtext2{width: 400px;  height: 40px;  background:white;  border:none; font-weight:bold;}
+#scbbtn{width: 100px; height: 50px;  float:left; line-height:50px; background:orange;  border-radius: 15px 15px 15px 15px;}
+#scbbtn2{width: 100px;  height: 40px;  background:orange;  border:none;  border-radius: 15px 15px 15px 15px;
+			 font-weight:bold; color:white;}
+			 
+/* restKind 상단에 표시되는 검색박스 */
+#searchDetailBox{	width:100%; height:60px; }
+.searchBox2{  position: absolute;  top: 21%;  left: 13%;  transform: translate(-50%, -50%);  height:30px;  width:200px; 
+			    	font-size:20px;  border-radius:7px 7px 7px 7px;}
+.searchButton2{  position: absolute;  top: 21%;  left: 28%;  transform: translate(-50%, -50%);  background-color:#FF8224;
+ 					 color:white;  width:60px;  height:37px;  border-radius:7px 7px 7px 7px;}
+
+.container input:focus{outline:none;}			 
+			 
+			 
+/*main페이지에서 new식당과 best 식당 css*/
+#box {	width:1200px; 	height:240px; 	border: 1px dotted black; 	margin: 0 auto }
+#middlebox {	width: 910px;	height: 350px;	margin: 0 auto;}
+#middlebox2 {	width: 910px;	height: 480px;	margin: 0 auto;}
+#smallbox {	width: 280px;	height: 280px;	float: left;	margin-right: 18px;	position: relative;	background: #f8f8f8;}
+#smallbox:hover {	-webkit-box-shadow: 5px 5px 15px -5px #CBCBCB; box-shadow: 5px 5px 15px -5px #CBCBCB;}
+#bigbox {	width: 900px;	height: 100%;	margin: 0 auto;}
+#small_img {	width: 280px;	height: 200px;	overflow: hidden;	display: flex;	justify-content: center;	align-items: center;	float: left;	background-color: #f8f8f8;}
+#small_content {	height: 80px;	padding: 5px 5px 5px 5px;	position: absolute;	top: 190px;}
+#showBest {	width: 440px;	height: 200px;	background: black;	float: left;	margin: 0 18px 20px 0;	overflow: hidden;
+					display: flex;	justify-content: center;	align-items: center;	opacity: 0.8;	cursor: pointer;}
+#showBest2 {	width: 440px;	height: 200px;	background: black;	float: left;	overflow: hidden;	display: flex;
+					justify-content: center;	align-items: center;	opacity: 0.8;	cursor: pointer;}
+#showBest2:hover {	-webkit-box-shadow: 5px 5px 15px -5px #CBCBCB; box-shadow: 5px 5px 15px -5px #CBCBCB;}
+#showBest:hover {	-webkit-box-shadow: 5px 5px 15px -5px #CBCBCB; box-shadow: 5px 5px 15px -5px #CBCBCB;}
+#showContent {	width: 440px;	height: 200px;	color: white;	position: absolute;	line-height: 170px;	text-align: center;
+	text-shadow: -1px 0 #434343, 0 1px #434343, 1px 0 #434343, 0 -1px #434343;}
+
+/*join*/
+#join_box{width:1200px;  margin: 0 auto; margin-top:100px;}
+#join_box2{margin:0 auto; width:610px; }
+#join_table{margin:0 auto; width:360px;}
+#join_button{margin:0 auto;height:18pt;width:193pt;cursor:pointer;}
+#join_table tr{margin-top:10px;}
+#join_table th{width:100px; font-size:115%;}
+#join_table td{width:255px; font-size:115%;line-height:32px;}
+#join_chk{width:50px;}
+#join_button_2{width:440px; left:10px; margin-top:20px; position:relative;height:30pt;cursor:pointer;}
+#join_gen{width:50px;cursor:pointer;}
+#join{width:700px;}
+
+.join-form {width:1200px; position: relative;	top: 400px;	text-align: -webkit-center;}
+.join-form h1 {  font-size: 32px;  text-align: center;  margin-bottom: 50px;}
+.input-area {	position: relative;	width: 430px;	height: 80px; font-size:130%; }
+.input-area p{	margin-top:32px; margin-bottom: 2px;	margin-left: 10px; text-align:left;}
+.input-area #input_id {	position: relative;	width: 320px;	height: 40px; left:-40px;}
+.input-area #idcheck_button {	position: absolute;    width: 90px;    height: 48px;   
+											left: 350px;    top: 51px;    margin: 0 auto;    border-radius: 3px;}
+.input-area #input_pwd {	position: relative;	width: 420px;	height: 40px;left:10px;}
+.input-area #pwd_check {	position: relative;	width: 420px;	height: 40px;left:10px;}
+.input-area  #input_name {	position: relative;	width: 420px;	height: 40px;left:10px;}
+
+.input-area #input_email {	position: relative;	width: 420px;	height: 40px;left:10px;}
+.input-area #input_phone {	position: relative;	width: 420px;	height: 40px;left:10px;}
+.input-area #gender {	position: absolute;    width: 130px;    height: 40px;    left: 300px;    top: 60px;    margin: 0 auto;}
+.input-area #join_gen {	cursor:pointer;	width: 15px;}
+
+
+
+/* login */
+article h1 {	font-family: Verdana; text-shadow: 2px 2px 3px black;	font-size: 50px; color: orange;	margin: 50px 0;	
+		font-weight: normal; }
+article {margin:0 auto;	width: 580px; font-family: Verdana; font-size: 1em;	
+		line-height: 1.5em; margin-top:500px; min-height:539px;padding-left: 50px; }
+
+
+article form {	margin: 40px 0 40px 0;	width: 550px ; background-color: #f2f2f2; box-shadow: 0px 0px 2px black; }
+article form fieldset {padding: 80px 0 20px 70px; border:0;}
+
+article form label { 	width: 120px; float: left; line-height:32px; font-weight:bold;font-size:120%; }
+article form input {	width: 250px; height:20px; margin: 5px 0; 	border: 1px solid #999; 	background-color: white; }
+
+article form #buttons {	margin: 20px 0 0 50px; }
+article form  .submit, form  .cancel {	height: 30px;	width: 140px; 	border: 1px solid #666; 
+		border-radius: 10px; box-shadow: 3px 3px 2px #ccc; background-color: #ffc885; font-size: 14px; 	font-weight:bold; color: black;	margin: 0 0 0 10px;  }
+article form  .submit {	background-image: url(../images/submit_back.jpg); }
+article form  .cancel {  	background-image: url(../images/cancel_back.jpg);  }
+#loginBox{width:500px; height:507px;}
+
+
+#loginMenu{	position:relative;	width:240px;	height:70px;	margin-right:15px;	float:right;}
+#loginMenu ul{	list-style:none;	padding:0;	margin:0;	display:inline-block;}
+#loginMenu ul li{	float:left;	margin-right:20px;	font-size:bold;	font-size: 1.0375em;	line-height:80px;	color:black;}
+#loginMenu ul li a{color:black;}
+
+#memberMenu{	position:relative;	width:240px;	height:70px;	margin-right:15px;	float:right;}
+#memberMenu ul{	list-style:none;	padding:0;	margin:0;	display:inline-block;}
+#memberMenu ul li{	float:left;	margin-right:20px;	font-size:bold;	font-size: 1.0375em;	line-height:80px;	color:black;}
+#memberMenu ul li a{color:black;}
+
+
+
+/*예약페이지*/
+#revbox {
+	width: 800px;
+	height: 1000px;
+	margin: 0 auto;
+	top: 300px;
+	position: relative;
+}
+
+.revbox1 {
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.revbox2 {
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
+	border: 1px solid #eeeeee;
+	line-height: 49px;
+}
+
+.revbox3 {
+	width: 500px;
+	height: 10px;
+	margin: 0 auto;
+}
+
+input[type='date']::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+input[type='date']:focus::before, input[type='date']:valid::before {
+	display: none;
+}
+
+#selector {
+	border: none;
+	width: 490px;
+	height: 45px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector1 {
+	border: none;
+	width: 500px;
+	height: 50px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector2 {
+	border: none;
+	width: 500px;
+	height: 50px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector3 {
+	border: none;
+	width: 100%;
+	height: 50px;
+	color: gray;
+	background: #F8F8FF;
+	cursor: pointer
+}
+
+.startRadio {
+	z-index: -1;
+}
+
+#moreReview {
+	width: 700px;
+	height: 50px;
+	margin: 0 auto;
+	line-height: 49px;
+	cursor: pointer
+}
+
+button {
+	cursor: pointer;
+}
+
+#menu_box1 {
+	width: 160px;
+	height: 25px;
+	float: left;
+}
+
+#menu_box2 {
+	width: 100px;
+	height: 25px;
+	float: left;
+}
+
+#menu_box3 {
+	width: 130px;
+	height: 25px;
+	float: left;
+	text-align: right;
+}
+
+/* sidebar */
+
+#sidebar { position:absolute; right:-320px; background-color:gray; width:320px; height:100%; border:5px soild black; z-index:3; overflow:hidden; transition:1s; }
+
+#sidebar ul{ width:250px;  list-style:none; margin: 30px; padding:0px; }
+#sidebar ul li{position:relative; float:left; padding:0px; margin:10px;overflow:hidden; list-style:none; text-align:center; cursor:pointer; }
+#sidebar ul li a{text-decoration:none; color:black; }
+
+
+/* mypage */
+
+#mypage{ margin-top:300px; width:950px; height:1227px;  padding-top:20px; }
+#mypage_chk{ margin-top:300px; width:950px; height:1227px;  padding-top:20px; }
+#sub_mypage{ position:relative; margin-top:20px;left:49px;  width:230px; height:950px;text-align:center; float:left; border:1px solid black; background-color:white; }
+#profile{padding-top:50px; height:120px; text-align:center; border-bottom:1px dashed black; font-size:130%; background-color:white; }
+#mypagesub{ height:600px; padding-top:40px; background-color:white;}
+#mypagesub img{ width:30px; height:30px;position: relative; top: 7px; }
+#mypagesub ul {padding-left:20px; }
+#mypagesub ul li{width:180px; height:40px; margin-bottom:30px; border:0; line-height:40px; list-style:none;}
+#mypagesub a{text-decoration:none; color:black; font-weight:bold; font-size:120%;}
+#rightmypage{ left: 151px;margin: 0 auto;width: 800px;height: 924px;border: 1px solid black; padding-top:26px; position: relative;}
+#reserveBox h3{font-size:140%; color:orange;  margin: 0; cursor:pointer; width:200px;}
+#change h3{margin: 0px;position: relative; top: -10px; left: -20px;font-size:140%; color:orange;  }
+#change{margin-top:20px; margin-left:40px;background-color:#f7f7f7; font-weight:bold; padding-left:20px;  width:550px; height:200px; border-bottom:1px dashed gray; }
+#change:first-child{margin-top:0;}
+
+#deleteAccount{margin-top:20px; line-height:30px; position:relative; left:15px; font-weight:bold; padding-left:20px;  width:500px; height:30px;  }
+#deleteAccountBox{margin-left: 40px; line-height:30px; width: 540px; padding-right: 30px; height: 895px; border: 1px solid black; background-color: #f7f7f7; font-weight:bold; }
+#deleteAccountBox li{ font-weight:bold;  }
+#deleteAccountBox h2{ font-size:180%; }
+#deleteABox{width: 90px; height: 30px; margin: 0 auto; text-align: center;  background-color: white; border: 1px dashed black;}
+#deleteText{margin-left: 50px; line-height:30px; width: 440px; padding-right: 30px; height: 340px;background-color: white; font-weight:normal; }
+#rightmypage1{ left: 132px;margin: 0 auto;width: 650px;height: 924px;border: 1px solid black; padding-top:26px; position: relative;}
+#rightmypage1 a{position: relative; left: 0px; top: 0px; color: gray; text-decoration: none; cursor: pointer; font-size: 110%; }
+
+
+.change_name{  background-color:#f7f7f7; border:1px solid #f7f7f7; height:20px;}
+#change_button{ float:right; margin-right:0px; width:70px; background-color: white; border:1px solid red; color:red; font-weight:bold; cursor:pointer;}
+.close_button{opacity:0; float:right; margin-right:10px; width:70px; background-color: white; border:1px solid red; color:red; font-weight:bold; }
+.submit_button{position:relative; top:1px; height:24px; opacity:0; background-color:white; border:1px solid black; font-weight:bold; cursor:default;}
+.submit_button1 { top:0px;}
+#check_reservation{padding:30px; border-radius:20px; border:1px solid black; box-shadow:1px 1px 1px black; width:760px; height:800px; line-height:30px; font-weight:bold; background-color:#fff9f5;font-size:110%;}
+#check_img{border:1px solid black; width:180px;height:200px;float:left; background-color:white; overflow:hidden;}
+#check_img img{ width:180px;height:200px;  cursor:pointer; }
+#check_content{margin-left:237px; padding:10px; border:1px solid black;width:347px;height:180px; background-color:white; font-size:110%; line-height:35px;}
+#check_map{border:1px solid orange; padding:10px; width:710px; height:400px; background-color:white;}
+.close_1{ transition:2s; }
+#history_img{border:1px solid black;  width:180px;height:155px;float:left; background-color:white;}
+#history_img img{ width:180px;height:155px;  cursor:pointer; }
+#history_content{margin-left: 237px; padding: 5px 15px 15px 15px; border: 1px solid black;width: 337px;
+				height: 135px;background-color: white; font-size: 110%; line-height: 30px;}
+#mypage h1{   position: relative;    left: -50px;     margin-bottom: 30px;} 
+#mypage_chk h1{   position: relative;    left: -50px;     margin-bottom: 30px;} 
+#mypage_box1{margin-top:40px;  position: relative;   left: -30px;}
+#mypage_box{margin-bottom:40px;  position: relative;   left: -30px;}
+#rightmypage a{ position:relative; left:0px; top: 0px; color:black; text-decoration:none; cursor:pointer; font-size:110%; }
+#reserveBox{height:900px; border : 1px dashed black;  width: 600px;   margin-left: 25px; font-weight:bold;}
+
+#checkPass{position: absolute; right: 0px;  width: 120px; font-size: 100%; text-align: center; color: blue; height: 30px;}
+
+
+#reserveBoxButton {background: #ff5e00b8; color:white; border: 1px solid black; cursor:pointer;
+				font-weight:bold; line-height:20px; border-radius: 20px;  float: right;  margin-top: -15px; position:absolute;}
+#wishButton{background: gray; color:white; border: 1px solid black; cursor:pointer; font-weight:bold;  float: right; margin-top: 2px; margin-right: -10px;}
+#empty { width:500px; height:100px;  line-height:100px; position:relative; left:120px;}
+#empty p { position:relative; left:20px; line-height:45px; font-size:110%; }
+
+
+
+/* 로그인화면 메세지 */
+#message{ text-align:center; font-weight:bold; padding-bottom:30px; } 
+html{
+font-family: 'Noto Sans KR', sans-serif; font-size:110%;
+	
+}
+
+
+
+
+/*마이 페이지 내의 Paging */
+
+#paging2 a{ color:black; text-decoration:none; }
+#paging2 {     left: 50%;
+    bottom: 30px;
+    position: absolute;}
+    
+    
+    
+    
+    
+/* 카테고리 */
+
+
+#buffer1 {
+	position:relative; 
+	width:100%; 
+	height: 80px;
+	}
+
+#categoryFirst{ 
+	position:relative; 
+	width:100%; 
+	height:60px;  
+	margin-top:250px;
+	}
+#categoryFirst .ctTitle { 
+	position: relative; 
+	margin-left:25px; 
+	width: 900px; 
+	height: 60px;
+	}
+	
+#categoryFirst h2{ 
+	font-size: 30px; 
+	text-align: left; 
+	padding:0;
+	}
+
+
+#restlist { 
+	position:relative; 
+	width:100%; 
+	height: 100%;  
+	overflow: hidden;
+	}
+.buffer2{ 
+	position:relative; 
+	width: 100%; 
+	height: 15px; 
+	}
+.view { 
+	position:relative; 
+	width: 960px; 
+	padding-left:20px;
+	height: 900px; 
+	margin:0 auto; 
+	}
+
+.view #restbox{ 
+	position: relative; 
+	width: 450px; 
+	height: 200px; 
+	float: left; 
+	margin-right: 20px; 
+	margin-bottom: 25px; 
+	border-radius:30px; 
+	border: 1px solid  #FF8224;
+	background-color: #F8F8F8;
+	}
+
+.view #restbox a{
+	text-decoration-line: none;
+}
+	
+.view #restbox:nth-child(2n) {
+	margin-right:0;
+	}
+	
+.view #restimg{
+    position: absolute; 
+    width: 220px;
+    height: 200px; 
+    float: left; 
+	overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius:30px;
+    border-right: 1px solid  #FF8224;
+    background-color:#F8F8F8;
+    }
+.view #restimg img{
+	width: 220px; 
+	height: 200px; 
+	overflow: hidden; 
+	border-radius:30px; 
+	transition:1s;
+	}
+.view #restimg img:hover{
+	transform:scale(1.7);
+	}
+	
+.view #restifbox {
+    position: relative;
+    left: 240px;
+    width: 200px;
+    line-height: 20px;
+    height: 200px;
+    padding: 5px;
+    text-decoration-line: none;
+    color: #565656;
+	}
+	
+.view #restifbox h3{
+	font-size: 20px;
+	font-style: bold;
+}
+
+
+.recbox { 
+	position:relative; 
+	width: 900px; 
+	height: 100%; 
+	margin:0 auto; 
+	}
+	
+	
+.recbox #resttable { 
+	position: relative; 
+	width: 900px; 
+	height: 350px; 
+	margin-bottom: 15px; 
+	border-radius:30px; 
+	border: 1px solid #FF8224; 
+
+	}
+	
+.recbox #table_img { 
+	position: relative; 
+	width: 420px; 
+	height: 350px; 
+	float: left;
+	overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+	border-radius:30px;
+	}
+	
+.recbox #table_img img { 
+	width:450px; 
+	height: 350px; 
+	overflow: hidden; 
+	border-radius:30px;
+	border-right: 1px solid #FF8224;
+	transform: 1s;
+	}
+	
+.recbox #table_img img:hover{
+	transform:scale(1.1);
+	}
+	
+.recbox #bestrestif {
+	position: relative;
+	width: 440px;
+	height: 340px;
+	float: right;
+	margin: auto;
+	padding: 5px;
+	overflow: hidden;
+	color: #565656;
+}
+	
+.recbox #bestrestif1 { 
+	position: relative; 
+	width: 430px; 
+	height: 150px; 
+	margin-top: 0;
+	color: #565656;
+	}
+.recbox #bestrestif1 h3 { 
+	font-size: 25px;
+	color: #565656;
+	}
+
+.recbox #bestrestif2 { 
+   position: relative; 
+   width: 430px; 
+   height: 150px; 
+   overflow: scroll; 
+   margin-bottom: 0;
+   text-decoration-line: none;
+   color: #565656;
+   -ms-overflow-style: none;
+   }
+.recbox #bestrestif2::-webkit-scrollbar{
+  display:none;
+}
+    
+    
+/* Detail */    
+   
+   
+   
+@charset "UTF-8";
+
+#dtbox {
+	width: 940px;
+	height: 100%;
+	min-height:1000px;
+	margin: 0 auto;
+	top: 280px;
+	position: relative;
+}
+
+#imgplace {
+	width: 940px;
+	height: 415px;
+	/*overflow: hidden;*/
+	overflow-y:hidden; overflow-x:scroll;
+	border-radius: 5px 5px 5px 5px;
+	background-color: #F8F8FF;
+	position: relative;
+}
+
+#imgplace::-webkit-scrollbar {width: 10px; height:15px;}
+#imgplace::-webkit-scrollbar-thumb {
+    background-color: orange;
+    max-height: 100px;
+  }
+#imgplace::-webkit-scrollbar-track {
+    background-color: #FFE0C9;
+    box-shadow: inset 0px 0px 5px white;
+}
+
+#main_img1 {
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	position: absolute
+}
+#main_img2 {
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	position: absolute;
+	left:500px;
+}
+#main_img3 {
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	position: absolute;
+	left:1000px;
+}
+
+.dtb {
+	width: 960px;
+	height: 350px;
+	margin: 0 auto;
+}
+
+.dtblank {
+	width: 470px;
+	height: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+#dtrw {
+	width: 470px;
+	height: 350px;
+	margin: 0 auto;
+	border-radius: 5px 5px 5px 5px;
+	border: solid #F8F8FF 0.5px;
+}
+
+#dtrw td {
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#icon {
+	float: left;
+}
+
+#detail {
+	width: 470px;
+	height: 350px;
+	border-top: orange;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+	border: solid #F8F8FF 0.5px;
+}
+
+#detail th {
+	text-align: left;
+}
+
+#detail td {
+	width: 150px;
+}
+
+#detail_2 {
+	width: 400px;
+	height: auto;
+	margin: 0 auto;
+}
+
+#detail_3 {
+	width: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	line-height: 1.2;
+	height: 9.6em;
+	text-align: left;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 8;
+	-webkit-box-orient: vertical;
+}
+
+#menu_img {
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: right;
+	margin: 0 auto;
+}
+
+#box2 {
+	width: 960px;
+	height: 520px;
+}
+
+#map {
+	float: left;
+	width: 600px;
+	height: 450px;
+	overflow: hidden;
+	border-radius: 8px 8px 8px 8px;
+	border: 1px solid orange;
+}
+
+#location {
+	width: 330px;
+	height: 450px;
+	float: right;
+}
+
+#location table {
+	text-align: left;
+	margin-top: 20px
+}
+
+#location th {
+	width: 370px;
+	padding: 5px 0 5px 10px;
+}
+
+#location td {
+	width: 370px;
+	padding: 5px 0 20px 10px;
+}
+
+hr {
+	background-color: orange;
+}
+
+.blank2 {
+	width: 950px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.blank3 {
+	width: 950px;
+	height: 100%;
+	margin: 0 auto;
+	/*min-height: 300px;*/
+}
+
+.blank3 th {
+	border-bottom: 1px solid orange;
+}
+
+.blank3 tr td {
+	min-height: 30px;
+	height: 100%;
+}
+
+#reviewbox {
+	min-height: 120px;
+	position: relative;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#reviewstar {
+	float: left;
+	width: 60px;
+	height: 120px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#reviewid {
+	width: 790px;
+	height: 60px;
+	float: left;
+	line-height: 60px;
+	font-size: 120%;
+	font-weight: bold;
+	margin-left: 20px
+}
+
+#reviewedit {
+	width: 60px;
+	height: 60px;
+	float: left;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#reviewcontent {
+	width: 810px;
+	min-height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 80px;
+}
+
+#rvbutton {
+	width: 50px;
+	height: 85px;
+	color: orange;
+	font-weight: bold;
+	border: 1px solid orange;
+	border-radius: 5px 5px 5px 5px;
+	float: right;
+	background-color: white;
+	cursor: pointer
+}
+
+#rvbutton2 {
+	width: 50px;
+	height: 40px;
+	color: orange;
+	font-weight: bold;
+	border: 1px solid orange;
+	border-radius: 5px 5px 5px 5px;
+	background-color: white;
+	cursor: pointer
+}
+
+textarea {
+	margin-top:40px;
+	border: 1px solid orange;
+}
+
+.blank4 {
+	width: 950px;
+	height: 1040px;
+	margin: 0 auto;
+}
+
+.minidiv {
+	width: 300px;
+	height: 300px;
+	border: 0.5px solid orange;
+	float: left;
+	margin: 6px
+}
+
+.minidiv1 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -1;
+	background-color: #EEEEEE;
+}
+
+.minidiv2 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-weight: bold;
+	font-size: 200%;
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+/*예약페이지*/
+#revbox {
+	width: 800px;
+	height: 1400px;
+	margin: 0 auto;
+	top: 280px;
+	position: relative;
+}
+
+.revbox1 {
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.revbox2 {
+	width: 500px;
+	height: 50px;
+	margin: 0 auto;
+	border: 1px solid #eeeeee;
+	line-height: 49px;
+}
+
+.revbox3 {
+	width: 500px;
+	height: 10px;
+	margin: 0 auto;
+}
+
+input[type='date']::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+input[type='date']:focus::before, input[type='date']:valid::before {
+	display: none;
+}
+
+#selector {
+	border: none;
+	width: 490px;
+	height: 45px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector1 {
+	border: none;
+	width: 500px;
+	height: 50px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector2 {
+	border: none;
+	width: 500px;
+	height: 50px;
+	color: gray;
+	cursor: pointer
+}
+
+#selector3 {
+	border: none;
+	width: 100%;
+	height: 50px;
+	color: gray;
+	background: #F8F8FF;
+	cursor: pointer
+}
+
+.startRadio {
+	z-index: -1;
+}
+
+#moreReview {
+	width: 700px;
+	height: 50px;
+	margin: 0 auto;
+	line-height: 49px;
+	cursor: pointer
+}
+
+button {
+	cursor: pointer;
+}
+
+#menu_box1 {
+	width: 160px;
+	height: 25px;
+	float: left;
+}
+
+#menu_box2 {
+	width: 100px;
+	height: 25px;
+	float: left;
+}
+
+#menu_box3 {
+	width: 130px;
+	height: 25px;
+	float: left;
+	text-align: right;
+}
+
+/* QnA 관련 CSS */
+
+#reviewbox {
+	min-height: 120px;
+	position: relative;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#qnaUser {
+	float: left;
+	width: 60px;
+	height: 120px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+	border: solid blue 1px;
+	line-height: 120px;
+}
+
+#qnaBoss {
+	float: left;
+	width: 60px;
+	height: 120px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: #F8F8FF;
+	border-radius: 5px 5px 5px 5px;
+	border: solid red 1px;
+	line-height: 120px;
+}
+
+
+
+#qnacontent {
+	width: 810px;
+	min-height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 80px;
+	font-size:120%;
+}
+
+#Qselector3 {
+	border: none;
+	width: 100%;
+	height: 50px;
+	color: orange;
+	border: solid orange 1px;
+	cursor: pointer;
+	background:white;
+}
+
+
+#QnaForm{border: 1px soild gray;  border-collapse: collapse; width:600px; height:300px; background: #F8F8FF;}
+
+#noticeButton1{	width:100px; background: #FF8224; color:white; margin-left:20px;line-height: 10px; height: 25px;}
+#noticeArticle{height:1046px;}
+#contractArticle{padding-left:0px; width:700px;}
+#conBox{ width:535px; height:60px; margin:0 0 0 150px;  }
+#conBox input{width:100px;}
+
+.blankQ {
+	width: 600px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
